@@ -52,7 +52,9 @@ const server = http.createServer((req, res) => {
         const loginedData = JSON.parse(body);
         const {email,password} = loginedData;
         const users = readFileData();
+        //check user existence
         const userExist = users.find((u) => u.email === email);
+        //check password
         const passwordExist = users.find((u)=>u.password === password);
         if(!(userExist&&passwordExist)){
           res.statusCode = 404;  
@@ -66,9 +68,9 @@ const server = http.createServer((req, res) => {
 
     });
   }
-  //check user existence
 
-  //check password
+
+
 });
 
 const port = 3000;
