@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "name": "Alice Smith",
-    "email": "alice@email.com",
-    "password": "alice123"
-  },
-  {
     "name": "Yossef mohamed",
     "email": "yossef@gmail.com",
+    "password": "11224455"
+  },
+  {
+    "name": "mahmoud mohamed",
+    "email": "yossef@gmail.com",
     "id": 1768848026866,
-    "password": "yossef123"
+    "password": "11224455"
   }
 ]
