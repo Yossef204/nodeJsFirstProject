@@ -21,26 +21,26 @@ function writeFileData(data) {
 
 const server = http.createServer((req, res) => {
   const { method, url } = req;
-  // if (method === "POST" && url === "/create") {
-  //   let body = "";
-  //   req.on("data", (chunk) => {
-  //     body += chunk;
-  //   });
-  //   req.on("end", () => {
-  //     const newUser = JSON.parse(body);
-  //     const { email } = newUser;
-  //     const users = readFileData();
-  //     const userExist = users.find((u) => u.email === email);
-  //     if (userExist) {
-  //       res.end("User already exists");
-  //       return;
-  //     }
-  //     newUser.id = Date.now();
-  //     users.push(newUser);
-  //     writeFileData(users);
-  //     res.end("User created successfully");
-  //   });
-  // }
+  if (method === "POST" && url === "/create") {
+    let body = "";
+    req.on("data", (chunk) => {
+      body += chunk;
+    });
+    req.on("end", () => {
+      const newUser = JSON.parse(body);
+      const { email } = newUser;
+      const users = readFileData();
+      const userExist = users.find((u) => u.email === email);
+      if (userExist) {
+        res.end("User already exists");
+        return;
+      }
+      newUser.id = Date.now();
+      users.push(newUser);
+      writeFileData(users);
+      res.end("User created successfully");
+    });
+  }
   // --------login---------
 
   if (url === "/login" && method === "POST") {
